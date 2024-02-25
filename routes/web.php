@@ -69,21 +69,24 @@ Route::get('/', function () use($tasks) {
     return view('index',[
       'tasks' => $tasks
     ]);
-});
+})->name('tasks.index');
 
-Route::get('/xxx', function () {
-    return 'Hello';
-})->name('hello');
+Route::get('/{id}', function ($id){
+  return 'One single task';
+})-> name('task.show');
+// Route::get('/xxx', function () {
+//     return 'Hello';
+// })->name('hello');
 
-//Redirect route
+// //Redirect route
 
-Route::get('/hallo', function () {
-    return redirect()->route('hello');
-});
+// Route::get('/hallo', function () {
+//     return redirect()->route('hello');
+// });
 
-Route::get('/greet/{name}', function ($name) {
-    return 'Hello ' . $name . '!';
-});
+// Route::get('/greet/{name}', function ($name) {
+//     return 'Hello ' . $name . '!';
+// });
 
 Route::fallback(function(){
     return 'Still got somewhere';
